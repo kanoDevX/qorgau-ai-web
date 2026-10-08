@@ -1,0 +1,24 @@
+name: Web CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Dependency audit (§3.8)
+        # Fails on critical advisories. Known high/moderate items in next/postcss/next-intl are
+        # risk-accepted with justification in QorgauAI/docs/THIRD-PARTY.md until the Next 16 upgrade.
+        run: npm audit --omit=dev --audit-level=critical
+      - run: npm run typecheck
+      - run: npm run test:unit --if-present
+      - run: npm run build

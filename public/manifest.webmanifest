@@ -1,0 +1,70 @@
+{
+  "name": "QorgauAI — защита от мошенничества",
+  "short_name": "QorgauAI",
+  "description": "Проверьте сообщение, ссылку или звонок до того, как потеряете деньги. План действий после обмана работает без интернета.",
+  "id": "/",
+  "start_url": "/check",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a1a1e",
+  "theme_color": "#0a1a1e",
+  "orientation": "portrait",
+  "lang": "ru",
+  "categories": [
+    "security",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Проверить сообщение",
+      "short_name": "Проверить",
+      "url": "/check",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Меня обманули",
+      "short_name": "SOS",
+      "url": "/golden-hour",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/check",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
